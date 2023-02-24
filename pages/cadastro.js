@@ -1,7 +1,9 @@
+import LoginCard from '../src/components/loginCard/loginCard'
+
 export default function CadastroPage() {
     return(
         <div>
-            Cadastro page
+            <LoginCard />
         </div>
     )
 }
