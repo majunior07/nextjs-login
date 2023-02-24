@@ -5,7 +5,9 @@ import LoginCard from '../src/components/loginCard/loginCard'
 export default function CadastroPage() {
     return(
         <div className={styles.background}>
-            <LoginCard />
+            <LoginCard tittle="Crie sua conta">
+                ABCD
+            </LoginCard>
         </div>
     )
 }

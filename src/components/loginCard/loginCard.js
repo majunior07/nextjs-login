@@ -1,9 +1,10 @@
 import styles from './loginCard.module.css'
 
-export default function LoginCard() {
+export default function LoginCard({ tittle, children}) {
     return(
         <div className={styles.card}>
-            Login Card  
+            <h2 className={styles.tittle}>{tittle}</h2>
+            {children}  
         </div>
     )
 }
