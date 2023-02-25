@@ -8,3 +8,5 @@ export default function LoginCard({ tittle, children}) {
         </div>
     )
 }
+
+
