@@ -9,9 +9,11 @@ export default function LoginPage() {
     return(
         <div className={styles.background}>
             <LoginCard tittle="Entre em sua conta">
-                <Input type="email" placeholder="Seu e-mail"/>
-                <Input type="password" placeholder="Sua senha"/>
-                <Button>Entrar</Button>
+                <form className={styles.form}>
+                    <Input type="email" placeholder="Seu e-mail"/>
+                    <Input type="password" placeholder="Sua senha"/>
+                    <Button>Entrar</Button>
+                </form>                
             </LoginCard>
         </div>
     ) 
