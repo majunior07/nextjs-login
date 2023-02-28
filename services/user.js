@@ -1,4 +1,12 @@
+import jwt from 'jsonwebtoken'
+
 let users = []
+
+const SECRET = process.env.JWR_SECRET
+
+function createToken(user) {
+    return jwt.sign({ email: user.email, name: user.name}, SECRET)
+}
 
 export function cadastro(body) {
     const user = users.find(({ email }) => email === body.email)
@@ -15,3 +23,4 @@ export function login(body) {
 
     return user
 }
+
