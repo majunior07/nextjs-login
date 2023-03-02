@@ -1,5 +1,8 @@
 import { useState} from 'react'
 import Link from 'next/link'
+import { setCookie } from 'cookies-next' 
+import { useRouter } from 'next/router'
+
 import styles from '../styles/Login.module.css'
 
 import LoginCard from '../src/components/loginCard/loginCard'
@@ -13,6 +16,8 @@ export default function CadastroPage() {
         email: '',
         password: '',
     })
+    const[error, setError] = useState('')
+    const router = useRouter()
 
     const handleFormEdit = (event, name) => {
         setFormData({
@@ -37,8 +42,10 @@ export default function CadastroPage() {
 
             if(response.status !== 201) throw new Error(json)
 
+            setCookie('authorization', json)
+            router.push('/')
         } catch (err) {
-
+            setError(err.message)
         }
     }
 
@@ -50,6 +57,7 @@ export default function CadastroPage() {
                     <Input type="email" placeholder="Seu e-mail" required value={formData.email} onChange={(e) => {handleFormEdit(e, 'email')}} />
                     <Input type="password" placeholder="Sua senha" required value={formData.password} onChange={(e) => {handleFormEdit(e, 'password')}} />
                     <Button>Cadastrar</Button>
+                    {error && <p className={styles.error}>{error}</p>}
                     <Link href="/login" >Já possui uma conta?</Link>
                 </form>
             </LoginCard>
